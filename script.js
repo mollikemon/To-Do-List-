@@ -11,6 +11,7 @@ function addTask(){
         listContainer.appendChild(li);
         let span = document.createElement('span');
         span.innerHTML ="\u00d7";
+        
         li.appendChild(span);
     }
     inputBox.value ="";
@@ -23,7 +24,12 @@ listContainer.addEventListener("click",function(e){
         saveData();
     }
     else if(e.target.tagName === "SPAN"){
-        e.target.parentElement.remove();
+        // console.log(e.target.parentElement.classList.value)
+        if(e.target.parentElement.classList.value===""){
+            e.target.parentElement.remove();
+        }
+
+        // e.target.parentElement.remove();
         saveData();
     }
 },false);
